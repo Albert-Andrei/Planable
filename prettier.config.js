@@ -3,4 +3,12 @@ module.exports = {
   tabWidth: 2, // Specify the number of spaces per indentation-level
   semi: true, // Print semicolons at the ends of statements
   trailingComma: "all", // Print trailing commas wherever possible in multi-line comma-separated syntactic structures
+  overrides: [
+    {
+      files: "*.svg",
+      options: {
+        parser: "html",
+      },
+    },
+  ],
 };
