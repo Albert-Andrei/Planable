@@ -20,6 +20,7 @@ export default {
           40: "#9FA4AB",
           20: "#C9CDD1",
           10: "#E1E3E6",
+          5: "var(--foreground-05)",
         },
         neutral: {
           100: "#ffffff",
