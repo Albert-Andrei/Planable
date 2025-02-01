@@ -10,7 +10,6 @@ export const useFiltersStore = create<FiltersStore>((set) => ({
   // Initial state: No filters are selected by default
   selectedFilters: [],
 
-  // Toggle a single filter
   toggleFilter: (id: string) =>
     set((state) => ({
       selectedFilters: state.selectedFilters.includes(id)
@@ -18,7 +17,6 @@ export const useFiltersStore = create<FiltersStore>((set) => ({
         : [...state.selectedFilters, id], // Add if not selected
     })),
 
-  // Toggle all filters
   toggleAllFilters: (allFilterIds: string[]) =>
     set((state) => {
       const allSelected = state.selectedFilters.length === allFilterIds.length;
