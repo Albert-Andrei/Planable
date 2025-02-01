@@ -26,7 +26,7 @@ export const FilterList: FC = () => {
         <AccordionItem value="filters">
           <div className="flex flex-1 items-center px-2 py-1">
             <AccordionTrigger className="justify-start">
-              <p className="text-secondary-60 mr-[6px]">Media type</p>
+              <p className="text-xs text-secondary-60 mr-[6px]">Media type</p>
 
               <Image
                 src="/icons/chevron-down.svg"

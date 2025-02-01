@@ -2,7 +2,8 @@ import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { DEFAULT_METADATA } from "@/config/constants";
 import { RootProvider } from "@/providers/RootProvider";
-import { SideBar } from "@/components/sidebar/";
+import { SideBar } from "@/components/sidebar/SideBar";
+import { NavBar } from "@/components/navbar/NavBar";
 
 export const metadata: Metadata = {
   ...DEFAULT_METADATA,
@@ -16,6 +17,7 @@ export default function RootLayout({
   return (
     <RootProvider>
       <SideBar />
+      <NavBar />
       {children}
     </RootProvider>
   );
