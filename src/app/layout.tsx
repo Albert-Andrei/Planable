@@ -18,7 +18,9 @@ export default function RootLayout({
     <RootProvider>
       <SideBar />
       <NavBar />
-      {children}
+      <div className="w-full pl-[232px] max-sm:pl-0 mt-[65px]">
+        <div className="p-2">{children}</div>
+      </div>
     </RootProvider>
   );
 }

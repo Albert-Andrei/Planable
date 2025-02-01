@@ -1,9 +1,25 @@
 import Image from "next/image";
 
-export default async function Folders({ folderId }) {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+interface Params {
+  params: {
+    folderId: string;
+  };
+}
 
+export default function Folders({ params: { folderId } }: Params) {
   return (
-    <div className="flex justify-center items-center h-screen w-full ">Folder: {folderId}</div>
+    <div>
+      <div
+        className="w-full border border-secondary-20 border-dashed rounded-xl flex flex-col items-center justify-center"
+        style={{ height: "calc(100vh - 81px)" }}
+      >
+        <Image src="/icons/empty-folder.svg" alt="empty" width={152} height={92} />
+
+        <div className="flex flex-col items-center gap-2 mt-6">
+          <h2 className="text-3xl text-secondary-100">This folder is empty</h2>
+          <p className="text-secondary-80">Add images, videos and GIFs.</p>
+        </div>
+      </div>
+    </div>
   );
 }
