@@ -2,6 +2,7 @@ import Image from "next/image";
 import { FC } from "react";
 import { FilterList } from "./sections/FilterList";
 import { FolderList } from "./sections/FolderList";
+import { SearchInput } from "./sections/SearchInput";
 
 export const SideBar: FC = () => {
   return (
@@ -26,6 +27,7 @@ export const SideBar: FC = () => {
 
         <FolderList />
         <FilterList />
+        <SearchInput />
       </div>
     </aside>
   );

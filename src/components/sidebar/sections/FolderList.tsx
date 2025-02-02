@@ -1,5 +1,6 @@
 "use client";
 
+import { folders } from "@/data/folders";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -37,7 +38,9 @@ export const FolderList: FC = () => {
                   className="text-secondary-80"
                 />
                 <p className="text-sm">{folder.name}</p>
-                <p className="text-sm text-secondary-40">{folder.count}</p>
+                <p className="text-sm text-secondary-40">
+                  {folders[folder.id as "1" | "2"].length}
+                </p>
               </Link>
             </li>
           );

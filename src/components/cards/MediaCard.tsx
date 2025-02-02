@@ -17,7 +17,7 @@ export const MediaCard: FC<MediaCardProps> = ({ file }) => {
   const isSelected = fileIndex !== -1;
   const order = fileIndex + 1;
 
-  const selectMediaFile = () => {
+  const handleSelectFile = () => {
     selectFile(file.id);
   };
 
@@ -25,7 +25,7 @@ export const MediaCard: FC<MediaCardProps> = ({ file }) => {
     <div
       key={file.name}
       className="group relative flex flex-col cursor-grab"
-      onClick={selectMediaFile}
+      onClick={handleSelectFile}
     >
       {/* Image container */}
       <div
@@ -46,7 +46,7 @@ export const MediaCard: FC<MediaCardProps> = ({ file }) => {
           <Checkbox
             className="absolute bottom-1 left-1 h-5 w-5 border-neutral-100 border-[1.5px]"
             checked={isSelected}
-            onChange={() => selectMediaFile()}
+            onChange={handleSelectFile}
           />
         </div>
 

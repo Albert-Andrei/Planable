@@ -8,7 +8,7 @@ type FiltersStore = {
 
 export const useFiltersStore = create<FiltersStore>((set) => ({
   // Initial state: No filters are selected by default
-  selectedFilters: ["filter_1", "filter_2", "filter_3"],
+  selectedFilters: ["image", "video", "gif"],
 
   toggleFilter: (id: string) =>
     set((state) => ({

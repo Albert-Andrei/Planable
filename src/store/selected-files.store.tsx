@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-type FiltersStore = {
+type SelectStore = {
   isAllFilesSelected: boolean;
   selectedFileIds: string[]; // Store only the IDs of selected filters
   selectFile: (id: string) => void;
@@ -8,7 +8,7 @@ type FiltersStore = {
   setAllFilesSelected: (value: boolean) => void;
 };
 
-export const useSelectedFilesStore = create<FiltersStore>((set) => ({
+export const useSelectedFilesStore = create<SelectStore>((set) => ({
   // Initial state: No filters are selected by default
   isAllFilesSelected: false,
   selectedFileIds: [],

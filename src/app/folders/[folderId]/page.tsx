@@ -21,8 +21,8 @@ export default async function Folders({ params }: Params) {
   const { folderId } = await params;
 
   const files: Media[] = folders[folderId as "1" | "2"];
-
   const hasFiles = files.length > 0;
+
   return (
     <>
       {hasFiles ? (

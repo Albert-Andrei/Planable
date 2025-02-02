@@ -1,18 +1,18 @@
 [
   {
-    "id": "filter_1",
+    "id": "image",
     "name": "Images",
     "icon": "/icons/filters/media.svg",
     "count": 0
   },
   {
-    "id": "filter_2",
+    "id": "video",
     "name": "Videos",
     "icon": "/icons/filters/play.svg",
     "count": 0
   },
   {
-    "id": "filter_3",
+    "id": "gif",
     "name": "GIFs",
     "icon": "/icons/filters/gif.svg",
     "count": 0

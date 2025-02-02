@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC } from "react";
+import React, { FC, useMemo } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -11,12 +11,21 @@ import Image from "next/image";
 import { Checkbox } from "@/components/ui/CheckBox";
 import { useFiltersStore } from "@/store/filters.store";
 import filters from "@/data/filters.json";
+import { usePathname } from "next/navigation";
+import { MediaType } from "@/types/media.types";
+import { getMediaTypesCount } from "@/utils/media-count";
 
 export const FilterList: FC = () => {
+  const pathname = usePathname();
   const { selectedFilters, toggleFilter, toggleAllFilters } = useFiltersStore();
 
   const allFilterIds = filters.map((filter) => filter.id);
   const allFiltersSelected = selectedFilters.length === allFilterIds.length;
+
+  const mediaTypesCount = useMemo(() => {
+    const id = pathname.split("/")[2];
+    return getMediaTypesCount(id as "1" | "2");
+  }, [pathname]);
 
   return (
     <div className="flex flex-col gap-4">
@@ -62,7 +71,9 @@ export const FilterList: FC = () => {
                           className="text-secondary-80"
                         />
                         <p className="text-sm">{filter.name}</p>
-                        <p className="text-sm text-secondary-40">{filter.count}</p>
+                        <p className="text-sm text-secondary-40">
+                          {mediaTypesCount[filter.id as MediaType]}
+                        </p>
                       </div>
 
                       <Checkbox
