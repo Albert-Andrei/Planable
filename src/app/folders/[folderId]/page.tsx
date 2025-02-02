@@ -1,5 +1,5 @@
 import { folders } from "@/data/folders";
-import { FolderPage } from "./conponents/Page";
+import { FolderPage } from "./components/Page";
 
 interface Params {
   params: {

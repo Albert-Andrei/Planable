@@ -71,7 +71,7 @@ export const MediaCard: FC<MediaCardProps> = ({ file }) => {
 
         {/* Image */}
         <img
-          src={file.thumbnail || file.src || "/placeholder.svg"}
+          src={file.thumbnail || file.src || "/images/placeholder.webp"}
           alt={file.name}
           className="object-contain border-[1.5px] border-neutral-60 rounded-[4px]"
         />
