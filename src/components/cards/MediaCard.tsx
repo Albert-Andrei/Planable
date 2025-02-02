@@ -58,16 +58,14 @@ export const MediaCard: FC<MediaCardProps> = ({ file }) => {
         )}
 
         {/* Video play icon */}
-        {file.type === MediaType.Video && (
+        {[MediaType.Video, MediaType.Gif].includes(file.type) && (
           <div className="absolute inset-0 z-10 flex items-center justify-center">
-            <Image src="/icons/play.svg" alt="play" width={28} height={28} />
-          </div>
-        )}
-
-        {/* GIF badge */}
-        {file.type === MediaType.Gif && (
-          <div className="absolute right-2 top-2 z-10 rounded bg-black/50 px-2 py-1">
-            <span className="text-xs font-medium text-white">GIF</span>
+            <Image
+              src={file.type === MediaType.Gif ? "/icons/gif.svg" : "/icons/play.svg"}
+              alt="play"
+              width={28}
+              height={28}
+            />
           </div>
         )}
 
