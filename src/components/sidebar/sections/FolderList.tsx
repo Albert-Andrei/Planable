@@ -6,7 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FC } from "react";
 
-const foldersData = [
+export const foldersData = [
   { id: "1", name: "Your folder", icon: "/icons/folder.svg", count: 30 },
   { id: "2", name: "New folder", icon: "/icons/folder.svg", count: 0 },
 ];
