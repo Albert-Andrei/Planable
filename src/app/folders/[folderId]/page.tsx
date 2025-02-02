@@ -1,3 +1,5 @@
+import FileGrid from "@/components/file-grid/FileGrid";
+import { Media } from "@/types/media.types";
 import Image from "next/image";
 
 interface Params {
@@ -6,20 +8,157 @@ interface Params {
   };
 }
 
-export default function Folders({ params: { folderId } }: Params) {
-  return (
-    <div>
-      <div
-        className="w-full border border-secondary-20 border-dashed rounded-xl flex flex-col items-center justify-center"
-        style={{ height: "calc(100vh - 81px)" }}
-      >
-        <Image src="/icons/empty-folder.svg" alt="empty" width={152} height={92} />
+const files = [
+  {
+    id: "1",
+    name: "img1.jpeg",
+    type: "image",
+    src: "https://picsum.photos/seed/1/400/400",
+  },
+  {
+    id: "21241",
+    name: "video.mp4",
+    type: "video",
+    thumbnail: "https://picsum.photos/seed/26/800/450",
+    src: "",
+  },
+  {
+    id: "2",
+    name: "img2.jpeg",
+    type: "image",
+    src: "https://picsum.photos/seed/2/400/400",
+  },
+  {
+    id: "3",
+    name: "img3.jpeg",
+    type: "image",
+    src: "https://picsum.photos/seed/3/800/450",
+  },
+  {
+    id: "4",
+    name: "img4.jpeg",
+    type: "image",
+    src: "https://picsum.photos/seed/4/600/250",
+  },
+  {
+    id: "5",
+    name: "img5.jpeg",
+    type: "image",
+    src: "https://picsum.photos/seed/5/400/400",
+  },
+  {
+    id: "6",
+    name: "img6.jpeg",
+    type: "image",
+    src: "https://picsum.photos/seed/6/400/400",
+  },
+  {
+    id: "7",
+    name: "img7.jpeg",
+    type: "image",
+    src: "https://picsum.photos/seed/7/400/400",
+  },
+  {
+    id: "8",
+    name: "img8.jpeg",
+    type: "image",
+    src: "https://picsum.photos/seed/8/400/400",
+  },
+  {
+    id: "9",
+    name: "img9.jpeg",
+    type: "image",
+    src: "https://picsum.photos/seed/9/400/400",
+  },
+  {
+    id: "10",
+    name: "img10.jpeg",
+    type: "image",
+    src: "https://picsum.photos/seed/10/400/400",
+  },
+  {
+    id: "11",
+    name: "img11.jpeg",
+    type: "image",
+    src: "https://picsum.photos/seed/11/400/400",
+  },
+  {
+    id: "12",
+    name: "img12.jpeg",
+    type: "image",
+    src: "https://picsum.photos/seed/12/400/400",
+  },
+  {
+    id: "13",
+    name: "img13.jpeg",
+    type: "image",
+    src: "https://picsum.photos/seed/13/400/400",
+  },
+  {
+    id: "14",
+    name: "img14.jpeg",
+    type: "image",
+    src: "https://picsum.photos/seed/14/400/400",
+  },
+  {
+    id: "15",
+    name: "img15.jpeg",
+    type: "image",
+    src: "https://picsum.photos/seed/15/400/400",
+  },
+  {
+    id: "16",
+    name: "img16.jpeg",
+    type: "image",
+    src: "https://picsum.photos/seed/16/400/400",
+  },
+  {
+    id: "17",
+    name: "img17.jpeg",
+    type: "image",
+    src: "https://picsum.photos/seed/17/400/400",
+  },
+  {
+    id: "18",
+    name: "img18.jpeg",
+    type: "image",
+    src: "https://picsum.photos/seed/18/400/400",
+  },
+  {
+    id: "19",
+    name: "img19.jpeg",
+    type: "image",
+    src: "https://picsum.photos/seed/19/400/400",
+  },
+  {
+    id: "20",
+    name: "img20.jpeg",
+    type: "image",
+    src: "https://picsum.photos/seed/20/400/400",
+  },
+] as Media[];
 
-        <div className="flex flex-col items-center gap-2 mt-6">
-          <h2 className="text-3xl text-secondary-100">This folder is empty</h2>
-          <p className="text-secondary-80">Add images, videos and GIFs.</p>
+export default async function Folders({ params }: Params) {
+  const { folderId } = await params;
+
+  const hasFiles = files.length > 0;
+  return (
+    <>
+      {hasFiles ? (
+        <FileGrid files={files} />
+      ) : (
+        <div
+          className="w-full border border-secondary-20 border-dashed rounded-xl flex flex-col items-center justify-center"
+          style={{ height: "calc(100vh - 81px)" }}
+        >
+          <Image src="/icons/empty-folder.svg" alt="empty" width={152} height={92} />
+
+          <div className="flex flex-col items-center gap-2 mt-6">
+            <h2 className="text-3xl text-secondary-100">This folder is empty</h2>
+            <p className="text-secondary-80">Add images, videos and GIFs.</p>
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 }

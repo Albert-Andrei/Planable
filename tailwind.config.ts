@@ -26,6 +26,7 @@ export default {
       neutral: {
         100: "#ffffff",
         80: "#F5F6F7",
+        60: "#EEF1F3",
       },
       keyframes: {
         "accordion-down": {
