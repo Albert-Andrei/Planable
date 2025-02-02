@@ -16,10 +16,10 @@ export default function FileGrid({ files }: FileGridProps) {
   const { selectedFilters } = useFiltersStore();
   const { isAllFilesSelected, selectMultipleFiles } = useSelectedFilesStore();
 
-  const allIds = useMemo(() => files.map((file) => file.id), []);
+  const allIds = useMemo(() => files.map((file) => file.id), [files]);
   const filteredData = useMemo(() => {
-    return files.filter((file) => selectedFilters.includes(file.type));
-  }, [selectedFilters]);
+    return files?.filter((file) => selectedFilters.includes(file.type));
+  }, [selectedFilters, files]);
 
   const [filesToShow, setFilesToShow] = useState<Media[]>([]);
 

@@ -11,9 +11,8 @@
   --foreground-05: #00000007;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
-    /* --background: #181818; */
     --background: #222222;
     --foreground: #ffffff;
     --foreground-80: #a0a0a0;
@@ -21,7 +20,7 @@
     --foreground-10: #2b2b2b;
     --foreground-05: #ffffff10;
   }
-}
+} */
 
 body {
   color: var(--foreground);

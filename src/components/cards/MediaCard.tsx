@@ -40,7 +40,7 @@ export const MediaCard: FC<MediaCardProps> = ({ file }) => {
             alt="expand"
             width={20}
             height={20}
-            className="absolute top-1 left-1"
+            className="absolute top-1 left-1 cursor-pointer"
           />
 
           <Checkbox

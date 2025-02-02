@@ -14,9 +14,11 @@ import filters from "@/data/filters.json";
 import { usePathname } from "next/navigation";
 import { MediaType } from "@/types/media.types";
 import { getMediaTypesCount } from "@/utils/media-count";
+import { useFoldersStore } from "@/store/folders.store";
 
 export const FilterList: FC = () => {
   const pathname = usePathname();
+  const { folders } = useFoldersStore();
   const { selectedFilters, toggleFilter, toggleAllFilters } = useFiltersStore();
 
   const allFilterIds = filters.map((filter) => filter.id);
@@ -24,8 +26,10 @@ export const FilterList: FC = () => {
 
   const mediaTypesCount = useMemo(() => {
     const id = pathname.split("/")[2];
-    return getMediaTypesCount(id as "1" | "2");
-  }, [pathname]);
+    const files = folders[id];
+
+    return getMediaTypesCount(files);
+  }, [pathname, folders]);
 
   return (
     <div className="flex flex-col gap-4">
