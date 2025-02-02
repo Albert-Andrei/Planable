@@ -1,17 +1,38 @@
+"use client";
+
 import Image from "next/image";
 import React, { FC } from "react";
 import { Checkbox } from "@/components/ui/CheckBox";
 import { Media, MediaType } from "@/types/media.types";
+import { useSelectedFilesStore } from "@/store/selected-files.store";
 
 type MediaCardProps = {
   file: Media;
 };
 
 export const MediaCard: FC<MediaCardProps> = ({ file }) => {
+  const { selectedFileIds, selectFile } = useSelectedFilesStore();
+
+  const fileIndex = selectedFileIds.indexOf(file.id);
+  const isSelected = fileIndex !== -1;
+  const order = fileIndex + 1;
+
+  const selectMediaFile = () => {
+    selectFile(file.id);
+  };
+
   return (
-    <div key={file.name} className="group relative flex flex-col cursor-pointer">
+    <div
+      key={file.name}
+      className="group relative flex flex-col cursor-grab"
+      onClick={selectMediaFile}
+    >
       {/* Image container */}
-      <div className="relative aspect-square overflow-hidden flex justify-center items-center p-[4px] bg-primary-100/10 border border-primary-100 rounded-[9px] group-hover:bg-transparent group-hover:border-transparent">
+      <div
+        className={`relative aspect-square overflow-hidden flex justify-center items-center p-[4px] border ${
+          isSelected ? "bg-primary-100/10 border-primary-100" : "border-transparent"
+        } rounded-[9px] group-hover:bg-transparent group-hover:border-transparent`}
+      >
         {/* Overlay (hidden by default, shown on hover) */}
         <div className="absolute inset-0 z-30 bg-black/20 rounded-lg opacity-0 group-hover:opacity-100 transition duration-200">
           <Image
@@ -22,13 +43,19 @@ export const MediaCard: FC<MediaCardProps> = ({ file }) => {
             className="absolute top-1 left-1"
           />
 
-          <Checkbox className="absolute bottom-1 left-1 h-5 w-5 border-neutral-100 border-[1.5px]" />
+          <Checkbox
+            className="absolute bottom-1 left-1 h-5 w-5 border-neutral-100 border-[1.5px]"
+            checked={isSelected}
+            onChange={() => selectMediaFile()}
+          />
         </div>
 
         {/* Selected Indicator */}
-        <div className="absolute bottom-1 left-1 w-5 h-5 z-20  bg-primary-100 rounded-[4px] flex justify-center items-center group-hover:hidden transition">
-          <p className="text-[10px] text-neutral-100">1</p>
-        </div>
+        {isSelected && (
+          <div className="absolute bottom-1 left-1 w-5 h-5 z-20  bg-primary-100 rounded-[4px] flex justify-center items-center group-hover:hidden transition">
+            <p className="text-[10px] text-neutral-100">{order}</p>
+          </div>
+        )}
 
         {/* Video play icon */}
         {file.type === MediaType.Video && (
@@ -54,7 +81,13 @@ export const MediaCard: FC<MediaCardProps> = ({ file }) => {
 
       {/* Subtitle */}
       <div className="h-7 flex justify-center items-center">
-        <p className="truncate text-xs text-secondary-80 text-center">{file.name}</p>
+        <p
+          className={`truncate text-xs text-center ${
+            isSelected ? "text-primary-100" : "text-secondary-80"
+          }`}
+        >
+          {file.name}
+        </p>
       </div>
     </div>
   );

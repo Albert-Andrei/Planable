@@ -5,6 +5,9 @@ import { RootProvider } from "@/providers/RootProvider";
 import { SideBar } from "@/components/sidebar/SideBar";
 import { NavBar } from "@/components/navbar/NavBar";
 
+// Show 404 for pages that are not generated statically
+export const dynamicParams = false;
+
 export const metadata: Metadata = {
   ...DEFAULT_METADATA,
 };
