@@ -1,9 +1,9 @@
 import { FolderPage } from "./components/Page";
 
 interface Params {
-  params: {
+  params: Promise<{
     folderId: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {

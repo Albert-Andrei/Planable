@@ -132,4 +132,5 @@ export const folders = {
   ] as Media[],
   2: [],
   3: [],
+  4: [],
 };
