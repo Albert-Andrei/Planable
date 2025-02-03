@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 // @TODO: update this after first deployment to production
 export const METADATA_URL =
-  process.env.NEXT_PUBLIC_SITE || "https://planable.vercel.app/images/preview.webp";
+  process.env.NEXT_PUBLIC_SITE || "https://planable.vercel.app/images/preview.jpg";
 
 export const DEFAULT_METADATA: Metadata = {
   title: "Media Gallery",
