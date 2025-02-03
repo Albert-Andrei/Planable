@@ -1,4 +1,3 @@
-import { folders } from "@/data/folders";
 import { FolderPage } from "./components/Page";
 
 interface Params {
@@ -8,15 +7,17 @@ interface Params {
 }
 
 export async function generateStaticParams() {
-  const folderIds = Object.keys(folders);
-
-  return folderIds.map((id) => ({
+  return ["1", "2", "3", "4"].map((id) => ({
     folderId: id,
   }));
 }
 
 export default async function Folders({ params }: Params) {
   const { folderId } = await params;
+
+  if (folderId === "3") {
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+  }
 
   return <FolderPage folderId={folderId} />;
 }

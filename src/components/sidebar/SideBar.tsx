@@ -3,6 +3,7 @@ import { FC } from "react";
 import { FilterList } from "./sections/FilterList";
 import { FolderList } from "./sections/FolderList";
 import { SearchInput } from "./sections/SearchInput";
+import Link from "next/link";
 
 export const SideBar: FC = () => {
   return (
@@ -13,7 +14,7 @@ export const SideBar: FC = () => {
     >
       <div className="h-full p-4 overflow-y-auto bg-background flex flex-col gap-8">
         {/* Header */}
-        <div className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2">
           <Image
             src="/images/logo.webp"
             alt="logo"
@@ -23,7 +24,7 @@ export const SideBar: FC = () => {
           />
 
           <p>Media gallery</p>
-        </div>
+        </Link>
 
         <FolderList />
         <FilterList />
