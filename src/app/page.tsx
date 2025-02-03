@@ -2,18 +2,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { foldersData } from "@/components/sidebar/sections/FolderList";
 
-const folders = [
-  ...foldersData,
-  { id: "3", name: "Loading folder", icon: "/icons/folder.svg", count: 0 },
-  { id: "4", name: "Error folder", icon: "/icons/folder.svg", count: 0 },
-];
-
 export default function Home() {
   return (
     <div className="flex flex-col gap-4">
       <p>My Folders</p>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
-        {folders.map((folder) => (
+        {foldersData.map((folder) => (
           <Link
             key={folder.id}
             href={`/folders/${folder.id}`}
