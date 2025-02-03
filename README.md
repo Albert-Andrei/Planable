@@ -110,12 +110,15 @@ _Note:_
 _Note:_ Server-Side Generation (SSG) was used for the folder pages.
 
 *State Management*
+
 This project uses Zustand for state management. 
 
 *Styling*
+
 Tailwind CSS is used for styling in this project.
 
 *Deployment*
+
 This Next.js project is deployed on Vercel, which provides an easy and quick deployment process. 
 
 ## **Known Limitations**
