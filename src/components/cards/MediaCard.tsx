@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { FC } from "react";
+import React, { FC, DragEvent } from "react";
 import { Checkbox } from "@/components/ui/CheckBox";
 import { Media, MediaType } from "@/types/media.types";
 import { useSelectedFilesStore } from "@/store/selected-files.store";
@@ -21,11 +21,18 @@ export const MediaCard: FC<MediaCardProps> = ({ file }) => {
     selectFile(file.id);
   };
 
+  const handleDragFile = (event: DragEvent<HTMLDivElement>) => {
+    event.dataTransfer.effectAllowed = "move";
+    event.dataTransfer.setData("text/html", file.id);
+  };
+
   return (
     <div
+      draggable
       key={file.name}
       className="group relative flex flex-col cursor-grab"
       onClick={handleSelectFile}
+      onDrag={handleDragFile}
     >
       {/* Image container */}
       <div
