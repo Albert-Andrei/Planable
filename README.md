@@ -1,36 +1,149 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## **Overview**
+This is a **Next.js application** developed as part of the provided assignment. The application is built with a modular and scalable architecture to ensure maintainability and ease of further development. It was a lot of fun and I'm glad I finally got the chance to experiment with some things I've been wanting to try for a while in this project. Below is a breakdown of features, the application's folder structure and key components, and more useful info. But first, let's look into how to run the app locally
 
-## Getting Started
+_Note:_ Because of lack of time on my side I ended up rushing several aspects of the project, which led to some compromises and questionable decisions I normally try to avoid and. This might explain some of the messy code you may come across. Anyways, I'd be happy to walk you through my decisions if we have the chance to discuss them.
 
-First, run the development server:
+## **How to Run the app**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+1. Clone the repository:
+```
+git clone https://github.com/Albert-Andrei/Planable.git
+cd Planable
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## **Features**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Core Features:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+  - [x] Folder Navigation: Displays a simple folder structure in a sidebar. Users can click on a folder to view its contents.
 
-## Deploy on Vercel
+  - [x] Media Grid: Shows media files in the selected folder in a grid layout, displaying mock thumbnails and file names while accounting for aspect ratios.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Advanced Features:**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+  - [x] File Management: Allows users to delete, and rename files from the folder, or drag and drop files to different folders.
+
+  - [x] File Filters: Includes a filtering bar or dropdown to filter files by:
+      - File type (e.g., image, video).
+      - File name (partial match).
+
+_Note:_ 
+1. Rename file functinolaity was not implemented. 
+2. To delete a file select the file and press on Delete or Bacskapce key on the keyboar 
+3. You can add a file by pressing on empy state or by dragging a file into the page **"⚠️ IMPORTANT: only one file can be selected and dragging file into the page wokrs only when the page is empty 🤷‍♂️ sorry, no time"**
+4. There might be more but that's all I remeber rightn now, might update this in the future 
+
+
+## **Architecture**
+
+*Folder Structure*
+
+`/app:`  
+&nbsp;&nbsp;Contains the core pages and layout logic of the application.
+
+`/folders:`  
+&nbsp;&nbsp;Handles routes related to folders.  
+
+&nbsp;&nbsp;`[folderId]:`  
+&nbsp;&nbsp;&nbsp;&nbsp;Dynamic routing for specific folders.  
+
+&nbsp;&nbsp;&nbsp;&nbsp;Includes:  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- `error.tsx`: Displays error messages for folder-specific issues.  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- `loading.tsx`: Shows loading states during folder data fetch.  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- `page.tsx`: Main page displaying folder content.  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- `components/`: Contains folder-specific reusable components.
+
+`layout.tsx:`  
+&nbsp;&nbsp;Global layout for the application. (has the UI that is persistent across the pages like sidebar and navbar)
+
+`page.tsx:`  
+&nbsp;&nbsp;Entry point page for the application. (home page)
+
+`/components:`  
+&nbsp;&nbsp;Contains reusable UI components
+
+`/store:`  
+&nbsp;&nbsp;State management logic for the app using Zustand or a similar library.  
+&nbsp;&nbsp;Files include:  
+&nbsp;&nbsp;&nbsp;&nbsp;- `filters.store.tsx`: Manages filter-related states.  
+&nbsp;&nbsp;&nbsp;&nbsp;- `folders.store.tsx`: Handles folder data state.  
+&nbsp;&nbsp;&nbsp;&nbsp;- `media-count.store.tsx`: Tracks media count-related data.  
+&nbsp;&nbsp;&nbsp;&nbsp;- `search.store.tsx`: Manages search functionality.  
+&nbsp;&nbsp;&nbsp;&nbsp;- `selected-files.store.tsx`: Keeps track of selected files in the UI.
+
+
+`/styles:`  
+&nbsp;&nbsp;Contains global CSS files.  
+
+
+`/types:`  
+&nbsp;&nbsp;Type definitions for TypeScript.  
+
+
+`/utils:`  
+&nbsp;&nbsp;Utility functions for reuse across the application.  
+
+
+`/config:`  
+&nbsp;&nbsp;Configuration files for app settings.
+
+
+`/data:`  
+&nbsp;&nbsp;Static data or mock data files.
+
+`/providers:`
+
+_Note:_ Server-Side Generation (SSG) was used for the folder pages.
+
+## **Known Limitations**
+
+**1. Static Mock Data:**  
+&nbsp;&nbsp;The app currently uses mock data for folder and file display. Integrating a real backend is required for full functionality.
+
+**2. Limited Responsive Design:**  
+&nbsp;&nbsp;While partially responsive, the app may require additional adjustments for smaller screen sizes.
+
+**3. Limited Darg'n Drop functionality:**  
+&nbsp;&nbsp;Right now a file must be selected before dragging to a folder
+&nbsp;&nbsp;The UI is not fully adjusted for Drag'n Drop missing some states
+&nbsp;&nbsp;Drag to add a file to the folder works only if the folder is empty
+
+**4. Missing Functinoality**
+&nbsp;&nbsp;Unfortunately rename file feature was not implemented 🥲
+
+## **Next Steps to Productionize**
+
+**1. Fix the known limitation:**  
+&nbsp;&nbsp;Probably first step would be to fix all the limitations the app currently has
+
+**2. Testing:**  
+&nbsp;&nbsp;Add unit tests and integration tests to ensure robustness.
+
+**4. Error Logging:**  
+&nbsp;&nbsp;Integrate tools like Sentry for monitoring runtime errors.
+
+**5. Enhanced Accessibility:**  
+&nbsp;&nbsp;Improve accessibility features to ensure WCAG compliance.
+
+**6. Enhance the EX**
+&nbsp;&nbsp;Improve the app by adding missing UI states, such as:
+
+&nbsp;&nbsp; - Toasts: To provide feedback indicating that an action has been successfully completed.
+
+&nbsp;&nbsp; - Confirmation Dialogs: To prompt users for confirmation before performing critical actions, like deleting a file.
+
+**7. Implement critical feature**
+&nbsp;&nbsp;Would be nice if the user could create update and delete a folder, preview a file and other...
