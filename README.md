@@ -1,7 +1,7 @@
 ## **Overview**
 This is a **Next.js application** developed as part of the provided assignment. The application is built with a modular and scalable architecture to ensure maintainability and ease of further development. It was a lot of fun and I'm glad I finally got the chance to experiment with some things I've been wanting to try for a while in this project. Below is a breakdown of features, the application's folder structure and key components, and more useful info. But first, let's look into how to run the app locally
 
-_Note:_ Because of lack of time on my side I ended up rushing several aspects of the project, which led to some compromises and questionable decisions I normally try to avoid and. This might explain some of the messy code you may come across. Anyways, I'd be happy to walk you through my decisions if we have the chance to discuss them.
+_Note:_ Because of lack of time on my side I ended up rushing several aspects of the project, which led to some compromises and questionable decisions I normally try to avoid. This might explain some of the messy code you may come across. Anyway, I'd be happy to walk you through my decisions if we have the chance to discuss them.
 
 ## **How to Run the app**
 
@@ -41,10 +41,11 @@ npm run dev
       - File name (partial match).
 
 _Note:_ 
-1. Rename file functinolaity was not implemented. 
-2. To delete a file select the file and press on Delete or Bacskapce key on the keyboar 
-3. You can add a file by pressing on empy state or by dragging a file into the page **"⚠️ IMPORTANT: only one file can be selected and dragging file into the page wokrs only when the page is empty 🤷‍♂️ sorry, no time"**
-4. There might be more but that's all I remeber rightn now, might update this in the future 
+1. **Rename functionality** was not implemented.
+2. To **delete a file**, select the file and press the **Delete** or **Backspace** key on the keyboard.
+3. You can **add a file** by clicking on the empty state or by dragging a file into the page.  
+   **⚠️ IMPORTANT:** Only one file can be selected, and dragging a file into the page works only when the page is empty. 🤷‍♂️ Sorry, no time.
+4. There might be more, but that's all I remember right now. I might update this in the future.
 
 
 ## **Architecture**
@@ -121,13 +122,13 @@ _Note:_ Server-Side Generation (SSG) was used for the folder pages.
 &nbsp;&nbsp;The UI is not fully adjusted for Drag'n Drop missing some states
 &nbsp;&nbsp;Drag to add a file to the folder works only if the folder is empty
 
-**4. Missing Functinoality**
+**4. Missing Functionality**
 &nbsp;&nbsp;Unfortunately rename file feature was not implemented 🥲
 
 ## **Next Steps to Productionize**
 
 **1. Fix the known limitation:**  
-&nbsp;&nbsp;Probably first step would be to fix all the limitations the app currently has
+&nbsp;&nbsp;Probably the first step would be to fix all the limitations the app currently has
 
 **2. Testing:**  
 &nbsp;&nbsp;Add unit tests and integration tests to ensure robustness.
@@ -146,4 +147,4 @@ _Note:_ Server-Side Generation (SSG) was used for the folder pages.
 &nbsp;&nbsp; - Confirmation Dialogs: To prompt users for confirmation before performing critical actions, like deleting a file.
 
 **7. Implement critical feature**
-&nbsp;&nbsp;Would be nice if the user could create update and delete a folder, preview a file and other...
+&nbsp;&nbsp;Would be nice if the user could create update and delete a folder, preview a file, and other...
