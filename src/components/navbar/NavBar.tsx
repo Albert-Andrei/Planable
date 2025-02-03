@@ -19,16 +19,22 @@ export const NavBar: FC = () => {
 
   const currentFolderId = pathname.split("/")[2];
   const hasSelectedFiles = selectedFileIds.length > 0;
+  const currentFolder = foldersData?.find((folder) => folder?.id === currentFolderId);
 
   useEffect(() => {
-    setSelectedFolder(foldersData.find((folder) => folder.id === currentFolderId)!);
-  }, [currentFolderId]);
+    if (currentFolder) {
+      setSelectedFolder(currentFolder);
+    }
+  }, [currentFolder]);
 
   const handleMoveToAnotherFolder = (newFolderId: string) => {
     setSelectedFolder(foldersData.find((folder) => folder.id === newFolderId)!);
 
     moveMultipleFiles(currentFolderId, newFolderId, selectedFileIds);
     selectMultipleFiles([]);
+    if (currentFolder) {
+      setSelectedFolder(currentFolder);
+    }
   };
 
   return (
