@@ -1,4 +1,4 @@
-import { folders } from "@/data/folders";
+import foldersData from "@/data/folders.json";
 import { Media } from "@/types/media.types";
 import { create } from "zustand";
 
@@ -13,7 +13,7 @@ type FileStore = {
 };
 
 export const useFoldersStore = create<FileStore>((set) => ({
-  folders: folders,
+  folders: foldersData as { [folderId: string]: Media[] },
 
   updateFolder: (id: string, files: Media[]) =>
     set((state) => ({

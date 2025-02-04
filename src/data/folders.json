@@ -1,0 +1,134 @@
+{
+  "1": [
+    {
+      "id": "1",
+      "name": "img1.jpeg",
+      "type": "image",
+      "src": "https://picsum.photos/seed/1/400/400"
+    },
+    {
+      "id": "21241",
+      "name": "video.mp4",
+      "type": "video",
+      "thumbnail": "https://picsum.photos/seed/26/800/550",
+      "src": ""
+    },
+    {
+      "id": "2",
+      "name": "img2.jpeg",
+      "type": "image",
+      "src": "https://picsum.photos/seed/2/400/400"
+    },
+    {
+      "id": "3",
+      "name": "img3.jpeg",
+      "type": "image",
+      "src": "https://picsum.photos/seed/3/800/550"
+    },
+    {
+      "id": "4",
+      "name": "img4.jpeg",
+      "type": "image",
+      "src": "https://picsum.photos/seed/4/600/300"
+    },
+    {
+      "id": "5",
+      "name": "img5.jpeg",
+      "type": "image",
+      "src": "https://picsum.photos/seed/5/400/400"
+    },
+    {
+      "id": "6",
+      "name": "img6.jpeg",
+      "type": "image",
+      "src": "https://picsum.photos/seed/6/800/550"
+    },
+    {
+      "id": "7",
+      "name": "img7.jpeg",
+      "type": "image",
+      "src": "https://picsum.photos/seed/8/400/400"
+    },
+    {
+      "id": "8",
+      "name": "mountain.gif",
+      "type": "gif",
+      "src": "https://picsum.photos/seed/62/800/550"
+    },
+    {
+      "id": "9",
+      "name": "img9.jpeg",
+      "type": "image",
+      "src": "https://picsum.photos/seed/9/400/400"
+    },
+    {
+      "id": "10",
+      "name": "img10.jpeg",
+      "type": "image",
+      "src": "https://picsum.photos/seed/10/400/400"
+    },
+    {
+      "id": "11",
+      "name": "img11.png",
+      "type": "image",
+      "src": "https://picsum.photos/seed/11/600/300"
+    },
+    {
+      "id": "12",
+      "name": "img12.jpeg",
+      "type": "image",
+      "src": "https://picsum.photos/seed/12/800/550"
+    },
+    {
+      "id": "13",
+      "name": "img13.jpeg",
+      "type": "image",
+      "src": "https://picsum.photos/seed/13/600/300"
+    },
+    {
+      "id": "14",
+      "name": "img14.png",
+      "type": "image",
+      "src": "https://picsum.photos/seed/14/400/400"
+    },
+    {
+      "id": "15",
+      "name": "img15.jpeg",
+      "type": "image",
+      "src": "https://picsum.photos/seed/15/400/400"
+    },
+    {
+      "id": "16",
+      "name": "train.mp4",
+      "type": "video",
+      "src": "https://picsum.photos/seed/16/800/550"
+    },
+    {
+      "id": "17",
+      "name": "img17.jpeg",
+      "type": "image",
+      "src": "https://picsum.photos/seed/17/400/400"
+    },
+    {
+      "id": "18",
+      "name": "img18.jpeg",
+      "type": "image",
+      "src": "https://picsum.photos/seed/18/400/400"
+    },
+    {
+      "id": "19",
+      "name": "img19.jpeg",
+      "type": "image",
+      "src": "https://picsum.photos/seed/19/400/400"
+    },
+    {
+      "id": "20",
+      "name": "img20.jpeg",
+      "type": "image",
+      "src": "https://picsum.photos/seed/20/400/400"
+    }
+  ],
+  "2": [],
+  "3": [],
+  "4": []
+}
