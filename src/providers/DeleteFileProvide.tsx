@@ -16,8 +16,12 @@ export const DeleteFileProvide: FC<PropsWithChildren> = ({ children }) => {
   const handleKeyDown = (event: KeyboardEvent) => {
     if (DELETE_KEYS.includes(event.key)) {
       const folderId = pathname.split("/")[2];
-
       removeMultipleFiles(folderId, selectedFileIds);
+      selectMultipleFiles([]);
+      return;
+    }
+
+    if (event.key === "Escape") {
       selectMultipleFiles([]);
     }
   };

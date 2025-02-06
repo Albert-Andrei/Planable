@@ -59,8 +59,8 @@ export default function FileGrid({ files }: FileGridProps) {
         </div>
       )}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
-        {filesToShow.map((file) => (
-          <MediaCard key={file.id} file={file} />
+        {filesToShow.map((file, index) => (
+          <MediaCard key={file.id} file={file} index={index} />
         ))}
       </div>
     </>

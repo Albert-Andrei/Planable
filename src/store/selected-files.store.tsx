@@ -1,15 +1,18 @@
 import { create } from "zustand";
 
 type SelectStore = {
+  lastSelectedIndex: number;
   isAllFilesSelected: boolean;
   selectedFileIds: string[]; // Store only the IDs of selected filters
   selectFile: (id: string) => void;
   selectMultipleFiles: (ids: string[]) => void;
   setAllFilesSelected: (value: boolean) => void;
+  setLastSelectedIndex: (index: number) => void;
 };
 
 export const useSelectedFilesStore = create<SelectStore>((set) => ({
   // Initial state: No filters are selected by default
+  lastSelectedIndex: -1,
   isAllFilesSelected: false,
   selectedFileIds: [],
 
@@ -27,5 +30,10 @@ export const useSelectedFilesStore = create<SelectStore>((set) => ({
   setAllFilesSelected: (value: boolean) =>
     set(() => ({
       isAllFilesSelected: value,
+    })),
+
+  setLastSelectedIndex: (index: number) =>
+    set(() => ({
+      lastSelectedIndex: index,
     })),
 }));

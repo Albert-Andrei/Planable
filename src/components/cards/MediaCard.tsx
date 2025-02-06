@@ -5,19 +5,51 @@ import React, { FC, DragEvent } from "react";
 import { Checkbox } from "@/components/ui/CheckBox";
 import { Media, MediaType } from "@/types/media.types";
 import { useSelectedFilesStore } from "@/store/selected-files.store";
+import { useFoldersStore } from "@/store/folders.store";
+import { usePathname } from "next/navigation";
 
 type MediaCardProps = {
   file: Media;
+  index: number;
 };
 
-export const MediaCard: FC<MediaCardProps> = ({ file }) => {
-  const { selectedFileIds, selectFile } = useSelectedFilesStore();
+export const MediaCard: FC<MediaCardProps> = ({ file, index }) => {
+  const pathname = usePathname();
+  const currentFolderId = pathname.split("/")[2];
+
+  const {
+    lastSelectedIndex,
+    selectedFileIds,
+    selectFile,
+    selectMultipleFiles,
+    setLastSelectedIndex,
+  } = useSelectedFilesStore();
+  const { folders } = useFoldersStore();
 
   const fileIndex = selectedFileIds.indexOf(file.id);
   const isSelected = fileIndex !== -1;
   const order = fileIndex + 1;
 
-  const handleSelectFile = () => {
+  const handleSelectFile = (e: React.MouseEvent | React.FormEvent) => {
+    setLastSelectedIndex(index);
+
+    if ("shiftKey" in e && e.shiftKey) {
+      const currentFolder = folders?.[currentFolderId];
+      const min = Math.min(lastSelectedIndex, index);
+      const max = Math.max(lastSelectedIndex, index);
+      const result = currentFolder.slice(min, max + 1);
+      const newSelectedIds = result.map((file) => file.id);
+      const ids = [...new Set([...selectedFileIds, ...newSelectedIds])];
+      selectMultipleFiles(ids);
+      return;
+    }
+
+    if ("ctrlKey" in e && (e.ctrlKey || e.metaKey)) {
+      selectFile(file.id);
+      return;
+    }
+
+    selectMultipleFiles([]);
     selectFile(file.id);
   };
 
