@@ -140,18 +140,23 @@ This Next.js project is deployed on Vercel, which provides an easy and quick dep
 ## **Next Steps to Productionize**
 
 **1. Fix the known limitation:**  
+
 &nbsp;&nbsp;Probably the first step would be to fix all the limitations the app currently has
 
 **2. Testing:**  
+
 &nbsp;&nbsp;Add unit tests and integration tests to ensure robustness.
 
 **4. Error Logging:**  
+
 &nbsp;&nbsp;Integrate tools like Sentry for monitoring runtime errors.
 
 **5. Enhanced Accessibility:**  
+
 &nbsp;&nbsp;Improve accessibility features to ensure WCAG compliance.
 
-**6. Enhance the EX**
+**6. Enhance the UX**
+
 &nbsp;&nbsp;Improve the app by adding missing UI states, such as:
 
 &nbsp;&nbsp; - Toasts: To provide feedback indicating that an action has been successfully completed.
